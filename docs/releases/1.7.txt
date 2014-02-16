@@ -616,6 +616,9 @@ Models
   :attr:`~django.db.models.ForeignKey.limit_choices_to` when defining a
   ``ForeignKey`` or ``ManyToManyField``.
 
+* The ``only()`` and ``defer()`` methods of ``ValuesQuerySet`` will now raise a
+  ``NotImplementedError``. These methods never worked and therefore were removed. 
+
 Signals
 ^^^^^^^
 

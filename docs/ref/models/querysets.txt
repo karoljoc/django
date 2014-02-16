@@ -507,9 +507,12 @@ from a small number of the available fields and you won't need the
 functionality of a model instance object. It's more efficient to select only
 the fields you need to use.
 
-Finally, note a ``ValuesQuerySet`` is a subclass of ``QuerySet``, so it has all
-methods of ``QuerySet``. You can call ``filter()`` on it, or ``order_by()``, or
-whatever. Yes, that means these two calls are identical::
+Finally, note a ``ValuesQuerySet`` is a subclass of ``QuerySet``, so it has
+majority of the ``QuerySet`` methods. You can call ``filter()`` on it, or
+``order_by()``, or any other method. However, ``only()`` and ``defer()``
+methods will raise a ``NotImplementedError`` as it makes no sense to call
+these methods on a ``ValuesQuerySet``.
+Yes, that means these two calls are identical::
 
     Blog.objects.values().order_by('id')
     Blog.objects.order_by('id').values()
