@@ -616,6 +616,9 @@ Models
   :attr:`~django.db.models.ForeignKey.limit_choices_to` when defining a
   ``ForeignKey`` or ``ManyToManyField``.
 
+* After calling ``values()`` on a QuerySet, all further ``only()`` and ``defer()`` calls will
+  determine which fields are returned in the dictionary by the ValesQuerySet. 
+
 Signals
 ^^^^^^^
 
